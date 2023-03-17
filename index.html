@@ -36,7 +36,7 @@
             </div>
             <div id="listContact">
                 <ul>
-                    <li v-for="profile in contacts" class="d-flex">
+                    <li v-for="(profile, index) in contacts" class="d-flex"  @click="selectFriend(index)">
                         <img :src="profile.avatar" :alt="profile.name">
                         <div>
                             <span id="contactName">{{profile.name}}</span> <br />
@@ -64,21 +64,32 @@
                     <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
                 </ul>
             </div>
-            <div id="messagePage" >
+            <div id="messagePage">
 
+                <div v-for="element in contacts[activeContact].messages" :class="element.status=='sent'?'myMessage':'friendMessage'">
+                    <p>{{element.message}}</p>
+                    <span>{{element.date.substr(11,5)}}</span>
+
+                </div>
+
+
+
+
+                <!--
                 <div class="myMessage">
-                    <p>Hai portato a spasso il cane?</p>
-                    <span>15:30</span>
+                    <p>{{contacts[activeContact].messages[0].message}}</p>
+                    <span>{{contacts[activeContact].messages[0].date}}</span>
                 </div>
                 <div class="myMessage">
-                    <p>ricordati di stendere i panni</p>
-                    <span>15:50</span>
+                    <p>{{contacts[activeContact].messages[1].message}}</p>
+                    <span>{{contacts[activeContact].messages[1].date}}</span>
                 </div>
 
                 <div class="friendMessage">
-                    <p>tutto fatto!</p>
-                    <span>16:00</span>
+                    <p>{{contacts[activeContact].messages[2].message}}</p>
+                    <span>{{contacts[activeContact].messages[2].date}}</span>
                 </div>
+                -->
             </div>
             <div id="textBar" class="d-flex">
                 <button><i class="fa-regular fa-face-smile"></i></button>
