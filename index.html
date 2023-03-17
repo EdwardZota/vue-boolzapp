@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleanapp Messenger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="app" class="d-flex">
+        <div id="contactSide">
+            <div id="myProfile" class="d-flex">
+                <div>
+                    <img src="img/avatar_2.jpg" alt="Edward">
+                    <span>Edward</span>
+                </div>
+                <ul class="d-flex">
+                    <li><a href="#"><i class="fa-regular fa-circle"></i></a></li>
+                    <li><a href="#"></i><i class="fa-solid fa-message"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                </ul>
+            </div>
+            <div id="notification" class="d-flex">
+                <i class="fa-solid fa-bell-slash"></i>
+                <div>
+                    <span>Ricevi notifiche di nuovi messaggi</span> <br />
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <div id="searchBar" class="d-flex">
+                <button type="submit"><i class="fa fa-search"></i></button>
+                <input type="text" placeholder="Cerca o inizia una nuova chat">
+            </div>
+            <div id="listContact">
+                <ul>
+                    <li v-for="profile in contacts" class="d-flex">
+                        <img :src="profile.avatar" :alt="profile.name">
+                        <div>
+                            <span id="contactName">{{profile.name}}</span> <br />
+                            <span id="lastMessage">Ultimo messaggio inviato</span>
+                            <span id="time">12:00</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div id="messageSide">
+            <div id="friendProfile" class="d-flex">
+                <div class="d-flex">
+                    <img :src="contacts[activeContact].avatar" :alt="contacts[activeContact].name" />
+                    <div>
+                        <span>{{contacts[activeContact].name}}</span>
+                        <span>Ultimo messaggio oggi alle 12:00</span>
+                    </div>
+                    
+                </div>
+                <ul class="d-flex">
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-share-nodes"></i></a></li>
+                    <li><a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a></li>
+                </ul>
+            </div>
+            <div id="messagePage">
+                
+            </div>
+            <div id="textBar" class="d-flex">
+                <button><i class="fa-regular fa-face-smile"></i></button>
+                <input type="text" placeholder="Scrivi un messaggio">
+                <button><i class="fa-solid fa-microphone"></i></button>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="js/myscript.js"></script>
+    
+</body>
+</html>

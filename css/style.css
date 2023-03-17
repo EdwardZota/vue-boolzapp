@@ -1,0 +1,176 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}  
+body {
+    background: linear-gradient(180deg, #009587 15%, #d9d9d0 15%);
+}
+
+.d-flex{
+    display: flex;
+}
+
+#app{
+    width: 1170px;
+    height: 96vh;
+    margin: 2vh auto;
+}
+
+#contactSide{
+    width: 40%;
+    background-color: white;
+}
+
+#messageSide{
+    width: 60%;
+}
+
+#myProfile,#friendProfile{
+    background-color: #eaeaea;
+    height: 100px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#myProfile img,#listContact img,#friendProfile img{
+    height: 80px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#myProfile span{
+    vertical-align: 33px;
+    font-size: 20px;
+}
+
+#myProfile li,#friendProfile li{
+    list-style: none;
+    padding-right: 16px;
+    font-size: 25px;
+}
+#myProfile a,#friendProfile a{
+    color: #b1b1b1;
+}
+
+#notification {
+    background-color: #8edafc;
+    padding: 10px;
+}
+
+#notification i{
+    background-color: white;
+    border-radius: 50%;
+    color: #9edbfb;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    padding-left: 14px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+#notification div{
+    margin-top: 8px;
+}
+
+#notification a{
+    color: gray;
+}
+
+#searchBar{
+    background-color: #fafafa;
+    padding: 5px;
+}
+
+#searchBar button,#searchBar input{
+    border: 1px solid lightgray;
+    width: 100%;
+}
+
+#searchBar input{
+    border-left: none;
+    padding-left: 10px;
+}
+
+#searchBar button {
+    width: 75px;
+    height: 40px;
+    font-size: 20px;
+    color: gray;
+    background-color: white;
+}
+
+#listContact div{
+    position: relative;
+    margin: 10px 0 0 15px;
+    flex-grow: 1;
+}
+
+#listContact{
+    overflow-y: scroll;
+    height: calc(100% - 220px);
+}
+
+#listContact li{
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+#contactName{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#lastMessage,#time{
+    color: gray;
+}
+
+#listContact #time{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#friendProfile span{
+    display:block;
+    margin-top: 10px;
+}
+
+#friendProfile span:first-child{
+    font-size: 20px;
+}
+
+#friendProfile span:last-child{
+    color: gray;
+}
+
+#messagePage{
+    height: calc(100% - 160px);
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+}
+
+#textBar{
+    background-color: #f3eeea;
+}
+
+#textBar button,#textBar input{
+    height: 40px;
+    margin: 10px 0;
+    border: none;
+}
+
+#textBar button{
+    background: none;
+    color: gray;
+    width: 10%;
+    font-size: 20px;
+}
+
+#textBar input{
+    width: 80%;
+    border-radius: 5px;
+    padding: 10px;
+}
