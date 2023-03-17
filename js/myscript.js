@@ -4,7 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         activeContact:0,
-        activeMessage:0,
+        textNewMessage:'',
         contacts: [
             {
             name: 'Michele',
@@ -160,6 +160,18 @@ const { createApp } = Vue
     methods:{
       selectFriend(newFriendChat){
         this.activeContact = newFriendChat;
+    },
+    writeMessage(){
+      if(this.textNewMessage.length > 0){
+        this.contacts[this.activeContact].messages.push({date:'now',message:this.textNewMessage,status:'sent'});
+        this.textNewMessage='';
+        this.friendMessage();
+      }
+    },
+    friendMessage(){
+      setTimeout(()=>{
+        this.contacts[this.activeContact].messages.push({date:'now',message:'ok',status:'received'});
+      },1000);
     }
     }
   }).mount('#app')

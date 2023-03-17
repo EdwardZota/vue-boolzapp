@@ -71,29 +71,10 @@
                     <span>{{element.date.substr(11,5)}}</span>
 
                 </div>
-
-
-
-
-                <!--
-                <div class="myMessage">
-                    <p>{{contacts[activeContact].messages[0].message}}</p>
-                    <span>{{contacts[activeContact].messages[0].date}}</span>
-                </div>
-                <div class="myMessage">
-                    <p>{{contacts[activeContact].messages[1].message}}</p>
-                    <span>{{contacts[activeContact].messages[1].date}}</span>
-                </div>
-
-                <div class="friendMessage">
-                    <p>{{contacts[activeContact].messages[2].message}}</p>
-                    <span>{{contacts[activeContact].messages[2].date}}</span>
-                </div>
-                -->
             </div>
             <div id="textBar" class="d-flex">
                 <button><i class="fa-regular fa-face-smile"></i></button>
-                <input type="text" placeholder="Scrivi un messaggio">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="textNewMessage" @keyup.enter="writeMessage">
                 <button><i class="fa-solid fa-microphone"></i></button>
             </div>
         </div>
