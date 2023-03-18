@@ -4,7 +4,8 @@ const { createApp } = Vue
     data() {
       return {
         activeContact:0,
-        textNewMessage:'',
+        textSearchBar:"",
+        textNewMessage:"",
         contacts: [
             {
             name: 'Michele',
@@ -173,5 +174,12 @@ const { createApp } = Vue
         this.contacts[this.activeContact].messages.push({date:'now',message:'ok',status:'received'});
       },1000);
     }
+    },
+    computed:{
+      filteredProducts() {
+        return this.contacts.filter(profile => {
+          return profile.name.toLowerCase().indexOf(this.textSearchBar.toLowerCase()) != -1;
+        });
+      }
     }
   }).mount('#app')
