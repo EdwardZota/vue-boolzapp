@@ -32,11 +32,11 @@
             </div>
             <div id="searchBar" class="d-flex">
                 <button type="submit"><i class="fa fa-search"></i></button>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textSearchBar">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="textSearchBar" @keyup="searchFriend">
             </div>
             <div id="listContact">
                 <ul>
-                    <li v-for="(profile, index) in filteredProducts"  class="d-flex" @click="selectFriend(index)">
+                    <li v-for="(profile, index) in contacts" v-show="profile.visible"  class="d-flex" @click="selectFriend(index)">
                         <img :src="profile.avatar" :alt="profile.name">
                         <div>
                             <span id="contactName">{{profile.name}}</span> <br />

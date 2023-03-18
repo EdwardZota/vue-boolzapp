@@ -176,13 +176,15 @@ const { createApp } = Vue
     },
     deleteMessage(index){
       this.contacts[this.activeContact].messages.splice(index,1)
-    }
     },
-    computed:{
-      filteredProducts() {
-        return this.contacts.filter(profile => {
-          return profile.name.toLowerCase().indexOf(this.textSearchBar.toLowerCase()) != -1;
-        });
-      }
+    searchFriend(){
+      this.contacts.forEach(element => {
+        if(element.name.toLowerCase().includes(this.textSearchBar.toLowerCase())){
+          element.visible=true;
+        }else{
+          element.visible=false;
+        }
+      });
+    }
     }
   }).mount('#app')
