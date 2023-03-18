@@ -66,10 +66,16 @@
             </div>
             <div id="messagePage">
 
-                <div v-for="element in contacts[activeContact].messages" :class="element.status=='sent'?'myMessage':'friendMessage'">
+                <div v-for="(element, index) in contacts[activeContact].messages" :class="element.status=='sent'?'myMessage':'friendMessage'">
                     <p>{{element.message}}</p>
                     <span>{{element.date.substr(11,5)}}</span>
-
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class="fa-solid fa-chevron-down"></i></button>
+                        <div class="dropdown-content">
+                          <a href="#">Message info</a>
+                          <a href="#" @click="deleteMessage(index)">Delete Message</a>
+                        </div>
+                      </div>
                 </div>
             </div>
             <div id="textBar" class="d-flex">
