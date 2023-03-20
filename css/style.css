@@ -7,6 +7,14 @@ body {
     background: linear-gradient(180deg, #009587 15%, #d9d9d0 15%);
 }
 
+.d-block{
+    display: block;
+}
+
+.d-none{
+    display: none;
+}
+
 .d-flex{
     display: flex;
 }
@@ -156,6 +164,13 @@ body {
     right: 0;
 }
 
+.fa-arrow-left{
+    font-size: 35px;
+    padding: 20px 5px 0 10px;
+    color: gray;
+    display: none;
+}
+
 #friendProfile span{
     display:block;
     margin-top: 10px;
@@ -274,4 +289,33 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+@media screen and(min-width:1200px){
+    #contactSide.d-none{
+        display: block;
+    }
+}
+
+@media screen and (max-width:1200px) {
+    #app{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    #contactSide{
+        width: 100%;
+        height: 100vh;
+    }
+
+    #messageSide{
+        width: 100%;
+        height: 100vh;
+    }
+
+    .fa-arrow-left{
+        display: inline-block;
+    }
+    
 }

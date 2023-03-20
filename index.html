@@ -11,7 +11,7 @@
 <body>
 
     <div id="app" class="d-flex">
-        <div id="contactSide">
+        <div id="contactSide" class="d-block">
             <div id="myProfile" class="d-flex">
                 <div>
                     <img src="img/avatar_2.jpg" alt="Edward">
@@ -36,7 +36,7 @@
             </div>
             <div id="listContact">
                 <ul>
-                    <li v-for="(profile, index) in contacts" v-show="profile.visible"  class="d-flex" @click="selectFriend(index)" :class="profile.name==contacts[activeContact].name?'selected':''">
+                    <li v-for="(profile, index) in contacts" v-show="profile.visible"  class="d-flex"  @click="selectFriend(index);switchSideMobile()" :class="profile.name==contacts[activeContact].name?'selected':''">
                         <img :src="profile.avatar" :alt="profile.name">
                         <div>
                             <span id="contactName">{{profile.name}}</span> <br />
@@ -48,9 +48,10 @@
             </div>
 
         </div>
-        <div id="messageSide">
+        <div id="messageSide" :class="mobileApp==true?'d-none':''">
             <div id="friendProfile" class="d-flex">
                 <div class="d-flex">
+                    <i class="fa-solid fa-arrow-left" @click="switchSideMobile()"></i>
                     <img :src="contacts[activeContact].avatar" :alt="contacts[activeContact].name" />
                     <div>
                         <span>{{contacts[activeContact].name}}</span>

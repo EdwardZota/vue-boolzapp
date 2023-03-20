@@ -1,5 +1,15 @@
 const DateTime = luxon.DateTime;
 
+const windowWidth = screen.width;
+console.log(windowWidth);
+let mobile=null;
+if(windowWidth>1200){
+  mobile=false;
+}else{
+  mobile=true
+}
+console.log(mobile);
+
 const { createApp } = Vue
 
   createApp({
@@ -8,6 +18,7 @@ const { createApp } = Vue
         activeContact:0,
         textSearchBar:"",
         textNewMessage:"",
+        mobileApp:mobile,
         orario: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
         contacts: [
             {
@@ -194,6 +205,17 @@ const { createApp } = Vue
     },
     getLastTime(profile){
       return profile.messages[profile.messages.length -1].date;
+    },
+    switchSideMobile(){
+
+      const contactSideDom = document.getElementById('contactSide');
+      const messageSideDom = document.getElementById('messageSide');
+      if(windowWidth < 1200){
+        contactSideDom.classList.toggle('d-block');
+        contactSideDom.classList.toggle('d-none');
+        messageSideDom.classList.toggle('d-block');
+        messageSideDom.classList.toggle('d-none');
+      }
     }
     }
   }).mount('#app')
