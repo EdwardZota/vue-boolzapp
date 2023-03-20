@@ -36,12 +36,12 @@
             </div>
             <div id="listContact">
                 <ul>
-                    <li v-for="(profile, index) in contacts" v-show="profile.visible"  class="d-flex" @click="selectFriend(index)">
+                    <li v-for="(profile, index) in contacts" v-show="profile.visible"  class="d-flex" @click="selectFriend(index)" :class="profile.name==contacts[activeContact].name?'selected':''">
                         <img :src="profile.avatar" :alt="profile.name">
                         <div>
                             <span id="contactName">{{profile.name}}</span> <br />
-                            <span id="lastMessage">Ultimo messaggio inviato</span>
-                            <span id="time">12:00</span>
+                            <span id="lastMessage">{{getLastMessage(profile)}}</span>
+                            <span id="time">{{getLastTime(profile)}}</span>
                         </div>
                     </li>
                 </ul>
@@ -54,7 +54,7 @@
                     <img :src="contacts[activeContact].avatar" :alt="contacts[activeContact].name" />
                     <div>
                         <span>{{contacts[activeContact].name}}</span>
-                        <span>Ultimo messaggio oggi alle 12:00</span>
+                        <span>Ultimo messaggio {{contacts[activeContact].messages[contacts[activeContact].messages.length -1].date}}</span>
                     </div>
                     
                 </div>
@@ -86,11 +86,10 @@
         </div>
 
 
-
-
-
     </div>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>
     

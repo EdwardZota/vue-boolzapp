@@ -102,6 +102,17 @@ body {
     background-color: white;
 }
 
+.selected{
+    background-color: rgba(35, 255, 255, 1);
+    box-shadow: 0px 2px 75px 27px rgba(0,0,0,0.17) inset,
+    0px -36px 30px 0px rgba(0,0,0,0.15) inset,
+    0px -79px 40px 0px rgba(0,0,0,0.1) inset,
+    0px 2px 1px 0px rgba(0,0,0,0.06),
+    0px 4px 2px 0px rgba(0,0,0,0.09),
+    0px 8px 4px 0px rgba(0,0,0,0.09),
+    0px 16px 8px 0px rgba(0,0,0,0.09);
+}
+
 #listContact div{
     position: relative;
     margin: 10px 0 0 15px;
@@ -118,6 +129,10 @@ body {
     border-bottom: 1px solid lightgray;
 }
 
+#listContact li:hover{
+    background-color: lightblue;
+}
+
 #contactName{
     font-weight: bold;
     font-size: 20px;
@@ -125,6 +140,14 @@ body {
 
 #lastMessage,#time{
     color: gray;
+}
+
+#lastMessage{
+    display: inline-block;
+    width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #listContact #time{
@@ -173,6 +196,10 @@ body {
     padding-right: 35px;
 }
 
+.myMessage:hover .dropbtn,.friendMessage:hover .dropbtn{
+    display: block;
+}
+
 .myMessage{
     background-color: #d5f9ba;
     align-self: flex-end;
@@ -219,7 +246,9 @@ body {
     margin-right: 5px;
     font-size: 16px;
     border: none;
+    display: none;
 }
+
 
 .dropdown-content {
     display: none;

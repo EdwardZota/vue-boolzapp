@@ -1,3 +1,5 @@
+const DateTime = luxon.DateTime;
+
 const { createApp } = Vue
 
   createApp({
@@ -6,6 +8,7 @@ const { createApp } = Vue
         activeContact:0,
         textSearchBar:"",
         textNewMessage:"",
+        orario: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
         contacts: [
             {
             name: 'Michele',
@@ -164,14 +167,14 @@ const { createApp } = Vue
     },
     writeMessage(){
       if(this.textNewMessage.length > 0){
-        this.contacts[this.activeContact].messages.push({date:'..11space..now',message:this.textNewMessage,status:'sent'});
+        this.contacts[this.activeContact].messages.push({date:this.orario,message:this.textNewMessage,status:'sent'});
         this.textNewMessage='';
         this.friendMessage();
       }
     },
     friendMessage(){
       setTimeout(()=>{
-        this.contacts[this.activeContact].messages.push({date:'..11space..now',message:'ok',status:'received'});
+        this.contacts[this.activeContact].messages.push({date:this.orario,message:'ok',status:'received'});
       },1000);
     },
     deleteMessage(index){
@@ -185,6 +188,12 @@ const { createApp } = Vue
           element.visible=false;
         }
       });
+    },
+    getLastMessage(profile){
+      return profile.messages[profile.messages.length -1].message;
+    },
+    getLastTime(profile){
+      return profile.messages[profile.messages.length -1].date;
     }
     }
   }).mount('#app')
