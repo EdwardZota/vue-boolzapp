@@ -82,7 +82,8 @@
             <div id="textBar" class="d-flex">
                 <button><i class="fa-regular fa-face-smile"></i></button>
                 <input type="text" placeholder="Scrivi un messaggio" v-model="textNewMessage" @keyup.enter="writeMessage">
-                <button><i class="fa-solid fa-microphone"></i></button>
+                <button v-if="textNewMessage==0"><i class="fa-solid fa-microphone"></i></button>
+                <button v-else="textNewMessage>0" @click="writeMessage"><i class="fa-brands fa-telegram"></i></button>
             </div>
         </div>
 
