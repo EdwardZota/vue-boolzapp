@@ -40,8 +40,8 @@
                         <img :src="profile.avatar" :alt="profile.name">
                         <div>
                             <span id="contactName">{{profile.name}}</span> <br />
-                            <span id="lastMessage">{{getLastMessage(profile)}}</span>
-                            <span id="time">{{getLastTime(profile)}}</span>
+                            <span id="lastMessage" v-if="profile.messages.length>0">{{getLastMessage(profile)}}</span>
+                            <span id="time" v-if="profile.messages.length>0">{{getLastTime(profile)}}</span>
                         </div>
                     </li>
                 </ul>
@@ -55,7 +55,7 @@
                     <img :src="contacts[activeContact].avatar" :alt="contacts[activeContact].name" />
                     <div>
                         <span>{{contacts[activeContact].name}}</span>
-                        <span>Ultimo messaggio {{contacts[activeContact].messages[contacts[activeContact].messages.length -1].date}}</span>
+                        <span v-if="contacts[activeContact].messages.length>0">Ultimo messaggio {{contacts[activeContact].messages[contacts[activeContact].messages.length -1].date}}</span>
                     </div>
                     
                 </div>
