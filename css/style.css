@@ -155,16 +155,16 @@ body {
     background-color: var(--list-hover);
 }
 
-#contactName{
+.contactName{
     font-weight: bold;
     font-size: 20px;
 }
 
-#lastMessage,#time{
+.lastMessage,.time{
     color: var(--info);
 }
 
-#lastMessage{
+.lastMessage{
     display: inline-block;
     width: 150px;
     white-space: nowrap;
@@ -172,7 +172,7 @@ body {
     text-overflow: ellipsis;
 }
 
-#listContact #time{
+#listContact .time{
     position: absolute;
     top: 0;
     right: 0;
@@ -340,7 +340,7 @@ body {
 }
 
 @media screen and (max-width:500px){
-    #listContact #time{
+    #listContact .time{
         top: 65%;
 
     }

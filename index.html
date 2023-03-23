@@ -39,9 +39,9 @@
                     <li v-for="(profile, index) in contacts" v-show="profile.visible"  class="d-flex"  @click="selectFriend(index);switchSideMobile()" :class="profile.name==contacts[activeContact].name?'selected':''">
                         <img :src="profile.avatar" :alt="profile.name">
                         <div>
-                            <span id="contactName">{{profile.name}}</span> <br />
-                            <span id="lastMessage" v-if="profile.messages.length>0">{{getLastMessage(profile)}}</span>
-                            <span id="time" v-if="profile.messages.length>0">{{getLastTime(profile)}}</span>
+                            <span class="contactName">{{profile.name}}</span> <br />
+                            <span class="lastMessage" v-if="profile.messages.length>0">{{getLastMessage(profile)}}</span>
+                            <span class="time" v-if="profile.messages.length>0">{{getLastTime(profile)}}</span>
                         </div>
                     </li>
                 </ul>

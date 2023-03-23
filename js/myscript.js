@@ -12,6 +12,7 @@ const { createApp } = Vue
         activeContact:0,
         textSearchBar:"",
         textNewMessage:"",
+        online:null,
         mobile:null,
         messageSideDom: false,
         orario: DateTime.now().setLocale('it').toLocaleString(DateTime.DATETIME_SHORT_WITH_SECONDS),
@@ -179,9 +180,10 @@ const { createApp } = Vue
       }
     },
     friendMessage(){
+      
       setTimeout(()=>{
         this.contacts[this.activeContact].messages.push({date:this.orario,message:'ok',status:'received'});
-      },1000);
+      },5000);
     },
     deleteMessage(index){
       this.contacts[this.activeContact].messages.splice(index,1)
